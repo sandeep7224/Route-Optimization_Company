@@ -1,0 +1,48 @@
+I want you to write an code in python for route optimizing of field verification officers of a company involved in business of physical property address verification.
+
+The verification process involves a field officer to visit the customer’s property by a scooter and verify the address physically on spot and capture the latitude, longitude at customer’s property.
+
+In this project our main project is that, how a site will be assign to a field officer in optimized way>
+
+for this i have made some rule, which i want you to convert into the working code.
+
+first i want you to understande the database, which is currently saved in a excel.
+
+( first field officer table = F_O_name, F_O_id, Current loaction latitute, current location longitute, idel
+
+Visiting_site_table = request_id, customer_name, property_address, property_latitude, property_longitude, is_high_priority )
+
+In field officer table their is also have the coordinates of the polygon zone, which belongs to them
+
+now i will tell you how exactly the algorithm will works, which means what are the rule, on which the site will be allocate to field officer
+
+Firstly Pick first site from the site_table and calculate the following constraint for every field officer and after them we will decide to whom we will allocate it
+ 
+   A. If the field officer is idle
+                If yes give = 0.3
+                if not give = 0
+                   
+   B. If the site belong to the field officer zone, mean the site in within the boundary of the field officer zone or not.
+                IF yes give - 0.4
+                If not give - 0
+
+   C. Distance from the field officer current location to the site visit location.
+                if distance is less than 10 km, then calculate a value according to given formula
+                            x = 0.4 - distance_calulate_in_km*0.04
+                if the distance is grater then 10 km, give
+                            x = 0
+
+   D. Distance the field officer will have to travel after crossing the own zone boundary
+                if distance_to_travel is less than 10 km, then calculate a value according to given formula
+                            x = 0.2 - distance_calulate_in_km*0.02
+                if the distance is greater then 10 km, gives
+                            x = 0
+
+After calulating all this thing for every field officer, whose officer value is largest will allocate that site
+
+Please ask any question if needed you to understand anything clearly and after all the doubt clear, then start writting code
+
+   
+
+
+
